@@ -1,0 +1,25 @@
+#!/bin/bash
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+cd postgres;
+prefix="$(abspath ~/minmax/db/dist/pg)"
+export PYTHON="$(pythonpath)"
+./configure --prefix=$prefix --with-python --with-openssl;
+make clean;make install;
+cd contrib/hstore;make install;cd ../../;
+cd contrib/cube;make install;cd ../../;
+cd contrib/ltree;make install;cd ../../;
+cd contrib/pg_buffercache;make install;cd ../../;
+cd contrib/tablefunc;make install;cd ../../;
+cd contrib/pg_stat_statements;make install;cd ../../;
+cd contrib/auto_explain;make install;cd ../..;
+cd contrib/bloom;make install;cd ../../;
+cd contrib/jsonb_plpython;make install;cd ../../;
+cd contrib/intarray;make install;cd ../../;
+cd contrib/pg_trgm;make install;cd ../../;
+cd contrib/intagg;make install;cd ../../;
+cd contrib/btree_gist;make install; cd ../..;
+cd contrib/btree_gin;make install; cd ../..;
+cd ..

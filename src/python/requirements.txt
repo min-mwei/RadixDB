@@ -1,0 +1,9 @@
+pandas
+pandas-datareader
+requests
+asyncpg
+matplotlib
+markdown
+json2html
+sqlparse
+Jinja2
