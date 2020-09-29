@@ -1,0 +1,21 @@
+0. source env.sh
+
+1. setup environment
+   brew update && brew upgrade
+   brew install openssl
+   brew link python
+
+2. build core db
+   export RADIXDB_SOURCE=~/n1/Staging
+   cd $RADIXDB_SOURCE; source env.sh; clone-extsrc; build_pg; build_pg_ext
+
+3. build python package
+  cd  $RADIXDB_SOURCE/db/src/python/
+  pip3 install -r requirements.txt
+  python3 setup.py install
+
+4. db setup
+   mkdir db; cd db
+   python3 >>>
+   import radixdb.dbsetup
+   radixdb.dbsetup.setup_localdb()

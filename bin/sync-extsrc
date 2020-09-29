@@ -1,0 +1,9 @@
+#!/bin/bash
+cd postgres; git pull; cd ..
+cd citus; git pull; cd ..
+cd postgresql-hll;git pull; cd ..
+cd postgresql-topn;git pull; cd ..
+cd postgresql-topn;git pull; cd ..
+cd istore; git pull; cd ..
+cd tdigest; git pull; cd ..
+cd pg_variables; git pull; cd ..

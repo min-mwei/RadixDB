@@ -1,0 +1,12 @@
+#!/bin/bash
+git clone -b REL_12_STABLE https://github.com/postgres/postgres.git
+git clone https://github.com/citusdata/citus.git
+git clone https://github.com/citusdata/postgresql-hll.git
+git clone https://github.com/citusdata/postgresql-topn.git
+git clone https://github.com/citusdata/pg_cron.git
+git clone https://github.com/pramsey/pgsql-http.git
+git clone https://github.com/adjust/istore.git
+git clone https://github.com/min-mwei/pg-numhstore.git
+git clone https://github.com/postgrespro/pg_variables.git
+git clone -b centroid https://github.com/min-mwei/tdigest.git
+git clone https://github.com/vibhorkum/pg_background.git

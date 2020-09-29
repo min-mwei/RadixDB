@@ -1,0 +1,393 @@
+\set ECHO none
+-- int
+SELECT quantile(x, -0.5) FROM generate_series(1,1000) s(x);
+ERROR:  invalid percentile value -0.500000 - needs to be in [0,1]
+SELECT quantile(x, 1.5) FROM generate_series(1,1000) s(x);
+ERROR:  invalid percentile value 1.500000 - needs to be in [0,1]
+SELECT quantile(x, 0.5) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+      500
+(1 row)
+
+SELECT quantile(x, 0.1) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+      100
+(1 row)
+
+SELECT quantile(x, 0) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+        1
+(1 row)
+
+SELECT quantile(x, 1) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+     1000
+(1 row)
+
+SELECT quantile(x, ARRAY[0.5]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {500}
+(1 row)
+
+SELECT quantile(x, ARRAY[0.1]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {100}
+(1 row)
+
+SELECT quantile(x, ARRAY[0]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {1}
+(1 row)
+
+SELECT quantile(x, ARRAY[1]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {1000}
+(1 row)
+
+SELECT quantile(x, ARRAY[0, 0.1, 0.5, 0.75, 1]) FROM generate_series(1,1000) s(x);
+       quantile       
+----------------------
+ {1,100,500,750,1000}
+(1 row)
+
+-- bigint
+SELECT quantile(x::bigint, -0.5) FROM generate_series(1,1000) s(x);
+ERROR:  invalid percentile value -0.500000 - needs to be in [0,1]
+SELECT quantile(x::bigint, 1.5) FROM generate_series(1,1000) s(x);
+ERROR:  invalid percentile value 1.500000 - needs to be in [0,1]
+SELECT quantile(x::bigint, 0.5) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+      500
+(1 row)
+
+SELECT quantile(x::bigint, 0.1) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+      100
+(1 row)
+
+SELECT quantile(x::bigint, 0) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+        1
+(1 row)
+
+SELECT quantile(x::bigint, 1) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+     1000
+(1 row)
+
+SELECT quantile(x::bigint, ARRAY[0.5]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {500}
+(1 row)
+
+SELECT quantile(x::bigint, ARRAY[0.1]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {100}
+(1 row)
+
+SELECT quantile(x::bigint, ARRAY[0]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {1}
+(1 row)
+
+SELECT quantile(x::bigint, ARRAY[1]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {1000}
+(1 row)
+
+SELECT quantile(x::bigint, ARRAY[0, 0.1, 0.5, 0.75, 1]) FROM generate_series(1,1000) s(x);
+       quantile       
+----------------------
+ {1,100,500,750,1000}
+(1 row)
+
+-- double precision
+SELECT quantile(x::double precision, -0.5) FROM generate_series(1,1000) s(x);
+ERROR:  invalid percentile value -0.500000 - needs to be in [0,1]
+SELECT quantile(x::double precision, 1.5) FROM generate_series(1,1000) s(x);
+ERROR:  invalid percentile value 1.500000 - needs to be in [0,1]
+SELECT quantile(x::double precision, 0.5) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+      500
+(1 row)
+
+SELECT quantile(x::double precision, 0.1) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+      100
+(1 row)
+
+SELECT quantile(x::double precision, 0) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+        1
+(1 row)
+
+SELECT quantile(x::double precision, 1) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+     1000
+(1 row)
+
+SELECT quantile(x::double precision, ARRAY[0.5]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {500}
+(1 row)
+
+SELECT quantile(x::double precision, ARRAY[0.1]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {100}
+(1 row)
+
+SELECT quantile(x::double precision, ARRAY[0]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {1}
+(1 row)
+
+SELECT quantile(x::double precision, ARRAY[1]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {1000}
+(1 row)
+
+SELECT quantile(x::double precision, ARRAY[0, 0.1, 0.5, 0.75, 1]) FROM generate_series(1,1000) s(x);
+       quantile       
+----------------------
+ {1,100,500,750,1000}
+(1 row)
+
+-- numeric
+SELECT quantile(x::numeric, -0.5) FROM generate_series(1,1000) s(x);
+ERROR:  invalid percentile value -0.500000 - needs to be in [0,1]
+SELECT quantile(x::numeric, 1.5) FROM generate_series(1,1000) s(x);
+ERROR:  invalid percentile value 1.500000 - needs to be in [0,1]
+SELECT quantile(x::numeric, 0.5) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+      500
+(1 row)
+
+SELECT quantile(x::numeric, 0.1) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+      100
+(1 row)
+
+SELECT quantile(x::numeric, 0) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+        1
+(1 row)
+
+SELECT quantile(x::numeric, 1) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+     1000
+(1 row)
+
+SELECT quantile(x::numeric, ARRAY[0.5]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {500}
+(1 row)
+
+SELECT quantile(x::numeric, ARRAY[0.1]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {100}
+(1 row)
+
+SELECT quantile(x::numeric, ARRAY[0]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {1}
+(1 row)
+
+SELECT quantile(x::numeric, ARRAY[1]) FROM generate_series(1,1000) s(x);
+ quantile 
+----------
+ {1000}
+(1 row)
+
+SELECT quantile(x::numeric, ARRAY[0, 0.1, 0.5, 0.75, 1]) FROM generate_series(1,1000) s(x);
+       quantile       
+----------------------
+ {1,100,500,750,1000}
+(1 row)
+
+-- test of correct NULL handling (skipping with all NULLS)
+CREATE TABLE parent_table (id int);
+CREATE TABLE child_table  (id int, val int);
+INSERT INTO parent_table SELECT i FROM generate_series(1,10) s(i);
+INSERT INTO child_table  SELECT 2, i FROM generate_series(1,100) s(i);
+INSERT INTO child_table  SELECT 4, i FROM generate_series(1,100) s(i);
+INSERT INTO child_table  SELECT 6, i FROM generate_series(1,100) s(i);
+INSERT INTO child_table  SELECT 8, i FROM generate_series(1,100) s(i);
+INSERT INTO child_table  SELECT 10, i FROM generate_series(1,100) s(i);
+SELECT parent_table.id, quantile(child_table.val, array[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]) FROM parent_table LEFT JOIN child_table USING (id) GROUP BY id ORDER BY id;
+ id |           quantile           
+----+------------------------------
+  1 | 
+  2 | {10,20,30,40,50,60,70,80,90}
+  3 | 
+  4 | {10,20,30,40,50,60,70,80,90}
+  5 | 
+  6 | {10,20,30,40,50,60,70,80,90}
+  7 | 
+  8 | {10,20,30,40,50,60,70,80,90}
+  9 | 
+ 10 | {10,20,30,40,50,60,70,80,90}
+(10 rows)
+
+SELECT parent_table.id, quantile(child_table.val, 0.5) FROM parent_table LEFT JOIN child_table USING (id) GROUP BY id ORDER BY id;
+ id | quantile 
+----+----------
+  1 |         
+  2 |       50
+  3 |         
+  4 |       50
+  5 |         
+  6 |       50
+  7 |         
+  8 |       50
+  9 |         
+ 10 |       50
+(10 rows)
+
+SELECT parent_table.id, quantile(child_table.val::bigint, array[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]) FROM parent_table LEFT JOIN child_table USING (id) GROUP BY id ORDER BY id;
+ id |           quantile           
+----+------------------------------
+  1 | 
+  2 | {10,20,30,40,50,60,70,80,90}
+  3 | 
+  4 | {10,20,30,40,50,60,70,80,90}
+  5 | 
+  6 | {10,20,30,40,50,60,70,80,90}
+  7 | 
+  8 | {10,20,30,40,50,60,70,80,90}
+  9 | 
+ 10 | {10,20,30,40,50,60,70,80,90}
+(10 rows)
+
+SELECT parent_table.id, quantile(child_table.val::bigint, 0.5) FROM parent_table LEFT JOIN child_table USING (id) GROUP BY id ORDER BY id;
+ id | quantile 
+----+----------
+  1 |         
+  2 |       50
+  3 |         
+  4 |       50
+  5 |         
+  6 |       50
+  7 |         
+  8 |       50
+  9 |         
+ 10 |       50
+(10 rows)
+
+SELECT parent_table.id, quantile(child_table.val::double precision, array[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]) FROM parent_table LEFT JOIN child_table USING (id) GROUP BY id ORDER BY id;
+ id |           quantile           
+----+------------------------------
+  1 | 
+  2 | {10,20,30,40,50,60,70,80,90}
+  3 | 
+  4 | {10,20,30,40,50,60,70,80,90}
+  5 | 
+  6 | {10,20,30,40,50,60,70,80,90}
+  7 | 
+  8 | {10,20,30,40,50,60,70,80,90}
+  9 | 
+ 10 | {10,20,30,40,50,60,70,80,90}
+(10 rows)
+
+SELECT parent_table.id, quantile(child_table.val::double precision, 0.5) FROM parent_table LEFT JOIN child_table USING (id) GROUP BY id ORDER BY id;
+ id | quantile 
+----+----------
+  1 |         
+  2 |       50
+  3 |         
+  4 |       50
+  5 |         
+  6 |       50
+  7 |         
+  8 |       50
+  9 |         
+ 10 |       50
+(10 rows)
+
+SELECT parent_table.id, quantile(child_table.val::numeric, array[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]) FROM parent_table LEFT JOIN child_table USING (id) GROUP BY id ORDER BY id;
+ id |           quantile           
+----+------------------------------
+  1 | 
+  2 | {10,20,30,40,50,60,70,80,90}
+  3 | 
+  4 | {10,20,30,40,50,60,70,80,90}
+  5 | 
+  6 | {10,20,30,40,50,60,70,80,90}
+  7 | 
+  8 | {10,20,30,40,50,60,70,80,90}
+  9 | 
+ 10 | {10,20,30,40,50,60,70,80,90}
+(10 rows)
+
+SELECT parent_table.id, quantile(child_table.val::numeric, 0.5) FROM parent_table LEFT JOIN child_table USING (id) GROUP BY id ORDER BY id;
+ id | quantile 
+----+----------
+  1 |         
+  2 |       50
+  3 |         
+  4 |       50
+  5 |         
+  6 |       50
+  7 |         
+  8 |       50
+  9 |         
+ 10 |       50
+(10 rows)
+
+-- test of correct NULL handling (skipping with mixed NULL and not-NULL values)
+TRUNCATE child_table;
+INSERT INTO child_table  SELECT i, (CASE WHEN MOD(i,2) = 0 THEN i/2 ELSE NULL END) FROM generate_series(1,200) s(i);
+SELECT quantile(val, array[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]) FROM (SELECT val FROM child_table ORDER BY id) AS foo;
+           quantile           
+------------------------------
+ {10,20,30,40,50,60,70,80,90}
+(1 row)
+
+SELECT quantile(val::bigint, array[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]) FROM (SELECT val FROM child_table ORDER BY id) AS foo;
+           quantile           
+------------------------------
+ {10,20,30,40,50,60,70,80,90}
+(1 row)
+
+SELECT quantile(val::double precision, array[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]) FROM (SELECT val FROM child_table ORDER BY id) AS foo;
+           quantile           
+------------------------------
+ {10,20,30,40,50,60,70,80,90}
+(1 row)
+
+SELECT quantile(val::numeric, array[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]) FROM (SELECT val FROM child_table ORDER BY id) AS foo;
+           quantile           
+------------------------------
+ {10,20,30,40,50,60,70,80,90}
+(1 row)
+
