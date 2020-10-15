@@ -14,6 +14,8 @@ required = [
     "gunicorn",
     "aiohttp",
     "dominate",
+    "pglast",
+    "flask",
     "RestrictedPython"
 ]
 
@@ -32,5 +34,5 @@ setup(name="radixdb",
       license="MIT",
       url="http://radixdb.com",
       packages=find_packages(),
-      package_data={'radixdb': ['sql/*.sql', 'web/*', 'web/scripts/*', 'web/css/*', 'web/images/*']},
+      package_data={'radixdb': ['bin/*', 'sql/*.sql', 'web/*', 'web/scripts/*', 'web/css/*', 'web/images/*']},
       install_requires= required)

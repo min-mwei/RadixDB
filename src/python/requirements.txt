@@ -3,7 +3,7 @@ pandas-datareader
 requests
 asyncpg
 matplotlib
-markdown
-json2html
 sqlparse
+flask
 Jinja2
+pglast
