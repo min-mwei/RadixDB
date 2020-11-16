@@ -3,7 +3,7 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-prefix="$(abspath ~/minmax/db/dist/pg)"
+prefix="$(abspath $RADIXDB_SOURCE/dist/pg)"
 cd postgresql-hll;make clean;make install;cd ..
 cd pg_cron;make clean;make install;cd ..
 cd pg_variables;make clean;make USE_PGXS=1; make USE_PGXS=1 install; cd ..
