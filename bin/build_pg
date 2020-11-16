@@ -1,13 +1,13 @@
 #!/bin/bash
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+#export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 #export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+#export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+#export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 cd postgres;
-prefix="$(abspath $RADIXDB_SOURCE/dist/pg)"
+export prefix="$(abspath $RADIXDB_SOURCE/dist/pg)"
 export PYTHON="$(pythonpath)"
-./configure --prefix=$prefix --with-python --with-openssl;
-make clean;make install;
+./configure --prefix=$prefix --with-python #--with-openssl
+make clean;make install
 cd contrib/hstore;make install;cd ../../;
 cd contrib/cube;make install;cd ../../;
 cd contrib/ltree;make install;cd ../../;
